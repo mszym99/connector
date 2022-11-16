@@ -8,15 +8,18 @@ methods. Teams of three choose six commands; teams of two choose three.
  */
 public class CommandParser 
 {
-   String input;
+   static Scanner scanner = new Scanner(System.in);
+   static String input = scanner.nextLine();
    public CommandParser(final ActionSet actionSet, final String text)
    {
-      Scanner scanner = new Scanner(System.in);
-      String input = scanner.nextLine();
+
       System.out.println("YOUR PARSER:" + input);
 
    }
-   public static String getInput(String input){
+   public void setInput(String input){
+      this.input = input;
+   }
+   public static String getInput(){
       return input;
    }
 
