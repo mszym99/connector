@@ -26,6 +26,7 @@ public class CommandParser
    public void parse()
    {
       System.out.println("YOUR PARSER:" + CreationalCommands.testReturn(input));
+      CreationalCommands.stringToCharArray();
    }
    //Testing push for matt
    //Testing push for Hannah
