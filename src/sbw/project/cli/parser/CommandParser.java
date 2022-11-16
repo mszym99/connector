@@ -8,13 +8,14 @@ methods. Teams of three choose six commands; teams of two choose three.
  */
 public class CommandParser 
 {
-   static Scanner scanner = new Scanner(System.in);
-   static String input = scanner.nextLine();
+   private ActionSet actionSet;
+   private String text;
+   public static String input;
    public CommandParser(final ActionSet actionSet, final String text)
    {
-
-      System.out.println("YOUR PARSER:" + input);
-
+      this.actionSet = actionSet;
+      this.text = text;
+      //parse();
    }
    public void setInput(String input){
       this.input = input;
@@ -25,9 +26,11 @@ public class CommandParser
 
    public void parse()
    {
-      System.out.println("YOUR PARSER:" + CreationalCommands.testReturn(input));
+      setInput(text);
+      input = getInput();
+      System.out.println("YOUR PARSER: " + input);
+      //System.out.println("YOUR PARSER:" + CreationalCommands.testReturn(input));
       CreationalCommands.stringToCharArray();
+      System.out.println();
    }
-   //Testing push for matt
-   //Testing push for Hannah
 }

@@ -9,7 +9,7 @@ public class CreationalCommands {
     public static void stringToCharArray(){
         //create the parseArray which is an array of chars from input
         char[] parseArray = new char[input.length()];
-        //for loop to fill the arry with characters from input
+        //for loop to fill the array with characters from input
         for (int i = 0; i < input.length(); i++){
             parseArray[i] = input.charAt(i);
         }

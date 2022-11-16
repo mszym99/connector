@@ -11,7 +11,6 @@ public class Startup
       /*
       Read next line I.E "CREATE RUDDER <id> WITH LIMIT <angle> SPEED <speed> ACCELERATION <acceleration>"
        */
-
       cli.execute();      
    }
 }
