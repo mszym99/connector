@@ -6,16 +6,14 @@ import sbw.project.cli.parser.CommandParser;
 public class CreationalCommands {
     //get input from CommandParser
     static String input = CommandParser.getInput();
-    public static void stringToCharArray(){
-        //create the parseArray which is an array of chars from input
-        char[] parseArray = new char[input.length()];
-        //for loop to fill the array with characters from input
-        for (int i = 0; i < input.length(); i++){
-            parseArray[i] = input.charAt(i);
-        }
-    //for testing purposes for each character in parseArray will print with space resembling the array
-        for(char c : parseArray){
-            System.out.print(c + " ");
+    public static void toStringArray(){
+        //create the parseArray which is an array of strings from input
+        String data = input;
+        String parseArray[] = data.split(" ");
+
+        //for testing purposes for each string in parseArray will print with space resembling the array
+        for(String i : parseArray){
+            System.out.print(i + " " + " ");
         }
 
     }

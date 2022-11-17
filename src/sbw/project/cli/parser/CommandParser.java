@@ -29,8 +29,7 @@ public class CommandParser
       setInput(text);
       input = getInput();
       System.out.println("YOUR PARSER: " + input);
-      //System.out.println("YOUR PARSER:" + CreationalCommands.testReturn(input));
-      CreationalCommands.stringToCharArray();
+      CreationalCommands.toStringArray();
       System.out.println();
    }
 }
