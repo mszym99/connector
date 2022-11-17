@@ -29,7 +29,7 @@ public class CommandParser
       setInput(text);
       input = getInput();
       System.out.println("YOUR PARSER: " + input);
-      CreationalCommands.toStringArray();
+      CreationalCommands.toStringArray(); //changed name of method to represent the string
       System.out.println();
    }
 }

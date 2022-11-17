@@ -11,7 +11,7 @@ public class CreationalCommands {
         String data = input;
         String parseArray[] = data.split(" ");
 
-        //for testing purposes for each string in parseArray will print with space resembling the array
+        //for testing purposes for each string in parseArray will print with extra space resembling the array
         for(String i : parseArray){
             System.out.print(i + " " + " ");
         }
