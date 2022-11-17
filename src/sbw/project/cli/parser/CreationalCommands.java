@@ -6,7 +6,7 @@ import sbw.project.cli.parser.CommandParser;
 public class CreationalCommands {
     //get input from CommandParser
     static String input = CommandParser.getInput();
-    public static void stringToCharArray(){
+    public static void stringToCharArray(String input){
         //create the parseArray which is an array of chars from input
         char[] parseArray = new char[input.length()];
         //for loop to fill the array with characters from input
