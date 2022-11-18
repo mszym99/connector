@@ -13,13 +13,7 @@ import sbw.project.cli.parser.CommandParser;
 import javax.swing.*;
 
 public class CreationalCommands {
-    //get input from CommandParser
-    //static String input = CommandParser.getInput();
     public void testParse(String newArray[]){
-        /*
-        String newArray[] = toStringArray();
-         */
-
         //test parseArray[0] to see if its CREATE regardless of case
         if(newArray[0].equalsIgnoreCase("CREATE")){
             //if so then check if parseArray[1] is equal to one of the following commands
@@ -74,7 +68,6 @@ public class CreationalCommands {
             if(newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")){
 
             }
-
         }
     }
 
@@ -82,8 +75,4 @@ public class CreationalCommands {
     public double strToDouble(String value){
         return Double.parseDouble(value);
     }
-
-
-
-
 }

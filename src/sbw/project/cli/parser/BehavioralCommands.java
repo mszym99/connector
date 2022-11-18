@@ -7,32 +7,30 @@ import sbw.architecture.datatype.Speed;
 import sbw.project.cli.action.ActionCreational;
 
 public class BehavioralCommands {
-    //static String input = CommandParser.getInput();
-
     public void behavioralParse(String newArray[]){
 
-            //if so then check if parseArray[1] is equal to one of the following commands
-            //rudder
+        //if so then check if parseArray[1] is equal to one of the following commands
+        //rudder
         if(newArray[1].equalsIgnoreCase("RUDDER")){
 
         }
-            //elevator
+        //elevator
         if(newArray[1].equalsIgnoreCase("ELEVATOR")){
 
         }
-            //aileron
+        //aileron
         if(newArray[1].equalsIgnoreCase("AILERON")){
 
         }
-            // split flap
+        // split flap
         if(newArray[1].equalsIgnoreCase("SPLIT") && newArray[2].equalsIgnoreCase("FLAP")){
 
         }
-            //engine
+        //engine
         if(newArray[1].equalsIgnoreCase("ENGINE")){
 
         }
-            //nose gear
+        //nose gear
         if(newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")){
 
         }
