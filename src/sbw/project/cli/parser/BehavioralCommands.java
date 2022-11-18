@@ -7,7 +7,7 @@ import sbw.architecture.datatype.Speed;
 import sbw.project.cli.action.ActionCreational;
 
 public class BehavioralCommands {
-    static String input = CommandParser.getInput();
+    //static String input = CommandParser.getInput();
 
     public void behavioralParse(String newArray[]){
 

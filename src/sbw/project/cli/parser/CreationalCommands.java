@@ -14,7 +14,7 @@ import javax.swing.*;
 
 public class CreationalCommands {
     //get input from CommandParser
-    static String input = CommandParser.getInput();
+    //static String input = CommandParser.getInput();
     public void testParse(String newArray[]){
         /*
         String newArray[] = toStringArray();

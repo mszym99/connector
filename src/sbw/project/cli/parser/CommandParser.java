@@ -54,6 +54,11 @@ public class CommandParser
          create.structrualParse(newArray);
          System.out.println();
       }
+      else if(newArray[0].equalsIgnoreCase("@")){
+         MiscellaneousCommands create = new MiscellaneousCommands();
+         create.miscellaneousParse(newArray);
+         System.out.println();
+      }
       else{
          System.out.println("Invalid Input");
       }

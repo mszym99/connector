@@ -1,7 +1,7 @@
 package sbw.project.cli.parser;
 
 public class StructuralCommands {
-    static String input = CommandParser.getInput();
+    //static String input = CommandParser.getInput();
 
     public void structrualParse(String newArray[]){
         //if so then check if parseArray[1] is equal to one of the following commands
