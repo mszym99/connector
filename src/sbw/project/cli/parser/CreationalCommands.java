@@ -51,22 +51,34 @@ public class CreationalCommands {
                 Acceleration acceleration = new Acceleration(strToDouble(newArray[9]));
                 ActionCreational newCreation = CommandParser.getAC();
                 //next need to send it to doCreateElevator() with the newly converted data
-                newCreation.doCreateRudder(idElevator, angle, speed, acceleration);
+                newCreation.doCreateElevator(idElevator, angle, speed, acceleration);
             }//We just need to implement 4 more per the specs of the project
             //aileron
             if(newArray[1].equalsIgnoreCase("AILERON")){
-
+                Identifier idAileron = new Identifier(newArray[2]);
+                Angle angleUp = new Angle(strToDouble(newArray[6]));
+                Angle angleDown = new Angle(strToDouble(newArray[8]));
+                Speed speed = new Speed(strToDouble(newArray[10]));
+                Acceleration acceleration = new Acceleration(strToDouble(newArray[12]));
+                ActionCreational newCreation = CommandParser.getAC();
+                newCreation.doCreateAileron(idAileron, angleUp, angleDown, speed, acceleration);
             }
-            //flap
-            if(newArray[1].equalsIgnoreCase("FLAP")){
-
+            // split flap
+            if(newArray[1].equalsIgnoreCase("SPLIT") && newArray[2].equalsIgnoreCase("FLAP")){
+                Identifier idFlap = new Identifier(newArray[3]);
+                boolean isFowler = false;
+                Angle angle = new Angle(strToDouble(newArray[6]));
+                Speed speed = new Speed(strToDouble(newArray[8]));
+                Acceleration acceleration = new Acceleration(strToDouble(newArray[10]));
+                ActionCreational newCreation = CommandParser.getAC();
+                newCreation.doCreateFlap(idFlap, isFowler, angle,speed, acceleration);
             }
             //engine
             if(newArray[1].equalsIgnoreCase("ENGINE")){
 
             }
-            //gear
-            if(newArray[1].equalsIgnoreCase("GEAR")){
+            //nose gear
+            if(newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")){
 
             }
 
