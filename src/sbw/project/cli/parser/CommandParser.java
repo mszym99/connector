@@ -36,31 +36,33 @@ public class CommandParser
      // CreationalCommands.toStringArray(); //changed name of method to represent the string
       //currently only works with the first instance of
       //CREATE RUDDER R1 WITH LIMIT 100 SPEED 90 ACCELERATION 10
-      //entered into cmd prolly can fix with a for loop for all commands in the script we will write for testing:)
       String newArray[] = toStringArray();
-
-      if(newArray[0].equalsIgnoreCase("CREATE")){
-         CreationalCommands create = new CreationalCommands();
-         create.testParse(newArray);
-         System.out.println();
-      }
-      else if(newArray[0].equalsIgnoreCase("DECALRE")){
-         BehavioralCommands create = new BehavioralCommands();
-         create.behavioralParse(newArray);
-         System.out.println();
-      }
-      else if(newArray[0].equalsIgnoreCase("DO")){
-         StructuralCommands create = new StructuralCommands();
-         create.structrualParse(newArray);
-         System.out.println();
-      }
-      else if(newArray[0].equalsIgnoreCase("@")){
-         MiscellaneousCommands create = new MiscellaneousCommands();
-         create.miscellaneousParse(newArray);
-         System.out.println();
-      }
-      else{
-         System.out.println("Invalid Input");
+      //Created for loop to loop through every input and then direct to needed parser.
+      for(String str : newArray) {
+         if (newArray[0].equalsIgnoreCase("CREATE")) {
+            CreationalCommands create = new CreationalCommands();
+            create.testParse(newArray);
+            System.out.println();
+            return;
+         } else if (newArray[0].equalsIgnoreCase("DECALRE")) {
+            BehavioralCommands create = new BehavioralCommands();
+            create.behavioralParse(newArray);
+            System.out.println();
+            return;
+         } else if (newArray[0].equalsIgnoreCase("DO")) {
+            StructuralCommands create = new StructuralCommands();
+            create.structrualParse(newArray);
+            System.out.println();
+            return;
+         } else if (newArray[0].equalsIgnoreCase("@")) {
+            MiscellaneousCommands create = new MiscellaneousCommands();
+            create.miscellaneousParse(newArray);
+            System.out.println();
+            return;
+         } else {
+            System.out.println("Invalid Input: " + newArray[0] + " does not exist");
+            return;
+         }
       }
    }
    public static ActionCreational getAC(){

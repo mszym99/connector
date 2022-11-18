@@ -31,7 +31,7 @@ public class CreationalCommands {
             }
             //elevator
             if(newArray[1].equalsIgnoreCase("ELEVATOR")){
-                //CREATE ELEVATOR <id> WITH LIMIT <angle> SPEED <speed> ACCELERATION <acceleration>
+                //CREATE ELEVATOR R2 WITH LIMIT 10 SPEED 5 ACCELERATION 30
                 Identifier idElevator = new Identifier(newArray[2]);
                 Angle angle = new Angle(strToDouble(newArray[5]));
                 Speed speed = new Speed(strToDouble(newArray[7]));
