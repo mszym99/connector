@@ -37,11 +37,36 @@ public class CommandParser
       //currently only works with the first instance of
       //CREATE RUDDER R1 WITH LIMIT 100 SPEED 90 ACCELERATION 10
       //entered into cmd prolly can fix with a for loop for all commands in the script we will write for testing:)
-      CreationalCommands create = new CreationalCommands();
-      create.testParse();
-      System.out.println();
+      String newArray[] = toStringArray();
+
+      if(newArray[0].equalsIgnoreCase("CREATE")){
+         CreationalCommands create = new CreationalCommands();
+         create.testParse(newArray);
+         System.out.println();
+      }
+      else if(newArray[0].equalsIgnoreCase("DECALRE")){
+         BehavioralCommands create = new BehavioralCommands();
+         create.behavioralParse(newArray);
+         System.out.println();
+      }
+      else if(newArray[0].equalsIgnoreCase("DO")){
+         StructuralCommands create = new StructuralCommands();
+         create.structrualParse(newArray);
+         System.out.println();
+      }
+      else{
+         System.out.println("Invalid Input");
+      }
    }
    public static ActionCreational getAC(){
       return actionCreational;
+   }
+
+   public String[] toStringArray(){
+      //create the parseArray which is an array of strings from input
+      String data = input;
+      String parseArray[] = data.split(" ");
+      return parseArray;
+
    }
 }

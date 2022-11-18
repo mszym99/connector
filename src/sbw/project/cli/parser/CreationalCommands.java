@@ -15,18 +15,11 @@ import javax.swing.*;
 public class CreationalCommands {
     //get input from CommandParser
     static String input = CommandParser.getInput();
-    public String[] toStringArray(){
-        //create the parseArray which is an array of strings from input
-        String data = input;
-        String parseArray[] = data.split(" ");
-        return parseArray;
-
-    }
-    public void testParse(){
+    public void testParse(String newArray[]){
+        /*
         String newArray[] = toStringArray();
-        /*for(String i : newArray){
-            System.out.print(i + " " + " ");
-        }*/
+         */
+
         //test parseArray[0] to see if its CREATE regardless of case
         if(newArray[0].equalsIgnoreCase("CREATE")){
             //if so then check if parseArray[1] is equal to one of the following commands
@@ -85,10 +78,6 @@ public class CreationalCommands {
         }
     }
 
-    //setter if needed
-    public void setInput(String input){
-        this.input = input;
-    }
     //strToDouble method for specific requirements
     public double strToDouble(String value){
         return Double.parseDouble(value);
