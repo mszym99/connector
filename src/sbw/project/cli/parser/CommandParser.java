@@ -1,7 +1,6 @@
 package sbw.project.cli.parser;
 
-import sbw.project.cli.action.ActionCreational;
-import sbw.project.cli.action.ActionSet;
+import sbw.project.cli.action.*;
 
 /*
 All doX methods in this section are in class sbw.project.cli.action.ActionCreational. Use them as factory
@@ -13,6 +12,9 @@ public class CommandParser
    private String text;
 
    public static ActionCreational actionCreational;
+   public static ActionStructural actionStructural;
+   public static ActionBehavioral actionBehavioral;
+   public static ActionMiscellaneous actionMiscellaneous;
    public static String input;
    public CommandParser(final ActionSet actionSet, final String text)
    {
@@ -33,40 +35,62 @@ public class CommandParser
       setInput(text);
       input = getInput();
       System.out.println("YOUR PARSER: " + input);
-     // CreationalCommands.toStringArray(); //changed name of method to represent the string
-      //currently only works with the first instance of
-      //CREATE RUDDER R1 WITH LIMIT 100 SPEED 90 ACCELERATION 10
+
+      //Creates a string array to store command line inputs
       String newArray[] = toStringArray();
       //Created for loop to loop through every input and then direct to needed parser.
       for(String str : newArray) {
          if (newArray[0].equalsIgnoreCase("CREATE")) {
+            //Creates a new instance of the Creational Commands Class
             CreationalCommands create = new CreationalCommands();
+            //calls the method that parses the String array and calls the appropriate action class based on input
             create.testParse(newArray);
             System.out.println();
             return;
-         } else if (newArray[0].equalsIgnoreCase("DECALRE")) {
+         } else if (newArray[0].equalsIgnoreCase("DECLARE")) {
+            //Creates a new instance of the Behavioral Commands class
             BehavioralCommands create = new BehavioralCommands();
+            //calls the method that parses the String array and calls the appropriate action class based on input
             create.behavioralParse(newArray);
             System.out.println();
             return;
          } else if (newArray[0].equalsIgnoreCase("DO")) {
+            //Creates a new instance of the Structural Commands class
             StructuralCommands create = new StructuralCommands();
+            //calls the method that parses the String array and calls the appropriate action class based on input
             create.structrualParse(newArray);
             System.out.println();
             return;
-         } else if (newArray[0].equalsIgnoreCase("@")) {
+         } else if (newArray[0].equalsIgnoreCase("@CLOCK") || newArray[0].equalsIgnoreCase("@RUN")
+                     || newArray[0].equals("@EXIT")) {
+            //Creates a new instance of the Miscellaneous Commands class
             MiscellaneousCommands create = new MiscellaneousCommands();
+            //calls the method that parses the String array and calls the appropriate action class based on input
             create.miscellaneousParse(newArray);
             System.out.println();
             return;
          } else {
+            //Prints out that the command line input is not a valid input
             System.out.println("Invalid Input: " + newArray[0] + " does not exist");
             return;
          }
       }
    }
+
    public static ActionCreational getAC(){
       return actionCreational;
+   }
+
+   public static ActionStructural getAS(){
+      return actionStructural;
+   }
+
+   public static ActionBehavioral getAB(){
+      return actionBehavioral;
+   }
+
+   public static ActionMiscellaneous getAM(){
+      return actionMiscellaneous;
    }
 
    public String[] toStringArray(){
