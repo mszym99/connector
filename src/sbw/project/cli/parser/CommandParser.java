@@ -51,7 +51,7 @@ public class CommandParser
             System.out.println();
             return;
          } else if (newArray[0].equalsIgnoreCase("DECLARE") || newArray[0].equalsIgnoreCase("COMMIT")) {
-            //Creates a new instance of the Behavioral Commands class
+            //Creates a new instance of the Behavioral Commands class and for commit if case is met
             StructuralCommands create = new StructuralCommands();
             //calls the method that parses the String array and calls the appropriate action class based on input
             create.structrualParse(newArray);

@@ -13,6 +13,7 @@ public class StructuralCommands {
     public void structrualParse(String newArray[]){
         //if so then check if parseArray[1] is equal to one of the following commands
         //rudder
+
         if(newArray[1].equalsIgnoreCase("RUDDER")){
             //Create new identifier with id at array index 3
             Identifier idController = new Identifier(newArray[3]);
