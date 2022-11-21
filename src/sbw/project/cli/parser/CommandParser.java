@@ -21,6 +21,7 @@ public class CommandParser
       this.actionSet = actionSet;
       this.text = text;
       this.actionCreational = actionSet.getActionCreational();//we will have to do this for Structural and behavioral i believe
+      this.actionStructural = actionSet.getActionStructural();
       this.actionBehavioral = actionSet.getActionBehavioral();
       this.actionMiscellaneous = actionSet.getActionMiscellaneous();
       //parse();
@@ -51,16 +52,16 @@ public class CommandParser
             return;
          } else if (newArray[0].equalsIgnoreCase("DECLARE")) {
             //Creates a new instance of the Behavioral Commands class
-            BehavioralCommands create = new BehavioralCommands();
+            StructuralCommands create = new StructuralCommands();
             //calls the method that parses the String array and calls the appropriate action class based on input
-            create.behavioralParse(newArray);
+            create.structrualParse(newArray);
             System.out.println();
             return;
          } else if (newArray[0].equalsIgnoreCase("DO")) {
             //Creates a new instance of the Structural Commands class
-            StructuralCommands create = new StructuralCommands();
+            BehavioralCommands create = new BehavioralCommands();
             //calls the method that parses the String array and calls the appropriate action class based on input
-            create.structrualParse(newArray);
+            create.behavioralParse(newArray);
             System.out.println();
             return;
          } else if (newArray[0].equalsIgnoreCase("@CLOCK") || newArray[0].equalsIgnoreCase("@RUN")
