@@ -20,7 +20,9 @@ public class CommandParser
    {
       this.actionSet = actionSet;
       this.text = text;
-      this.actionCreational = actionSet.getActionCreational(); //we will have to do this for Structural and behavioral i believe
+      this.actionCreational = actionSet.getActionCreational();//we will have to do this for Structural and behavioral i believe
+      this.actionBehavioral = actionSet.getActionBehavioral();
+      this.actionMiscellaneous = actionSet.getActionMiscellaneous();
       //parse();
    }
    public void setInput(String input){

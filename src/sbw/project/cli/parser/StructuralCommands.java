@@ -23,7 +23,7 @@ public class StructuralCommands {
             Identifier idControler = new Identifier(newArray[3]);
             List<Identifier> idAilerons = new ArrayList<Identifier>();
             int i = 6;
-            while(!newArray[i].equalsIgnoreCase("PRIMARY")){
+            while(!newArray[i].equalsIgnoreCase("(PRIMARY)")){
                 Identifier adder = new Identifier(newArray[i]);
                 idAilerons.add(adder);
                 i++;
