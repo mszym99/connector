@@ -22,9 +22,11 @@ public class StructuralCommands {
         if(newArray[1].equalsIgnoreCase("AILERON")){
             Identifier idControler = new Identifier(newArray[3]);
             List<Identifier> idAilerons = new ArrayList<Identifier>();
-            int i = 6;
+            Identifier adder = new Identifier(newArray[6]);
+            idAilerons.add(adder);
+            int i = 7;
             while(!newArray[i].equalsIgnoreCase("(PRIMARY)")){
-                Identifier adder = new Identifier(newArray[i]);
+                Identifier adder2 = new Identifier(newArray[i]);
                 idAilerons.add(adder);
                 i++;
             }
@@ -41,8 +43,10 @@ public class StructuralCommands {
         // split flap
         if(newArray[1].equalsIgnoreCase("FLAP")){
             Identifier idController = new Identifier(newArray[3]);
+            System.out.println(idController);
             List<Identifier> idFlaps = new ArrayList<Identifier>();
             for(int i = 6; i < newArray.length; i++){
+                System.out.println(newArray[i]);
                 idFlaps.add(new Identifier(newArray[i]));
             }
             ActionStructural newStructure = CommandParser.getAS();
