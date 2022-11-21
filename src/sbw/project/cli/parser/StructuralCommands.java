@@ -5,6 +5,7 @@ import sbw.project.cli.action.ActionCreational;
 import sbw.project.cli.action.ActionStructural;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class StructuralCommands {
@@ -12,7 +13,13 @@ public class StructuralCommands {
         //if so then check if parseArray[1] is equal to one of the following commands
         //rudder
         if(newArray[1].equalsIgnoreCase("RUDDER")){
-
+            //Create new identifier with id at array index 3
+            Identifier idController = new Identifier(newArray[3]);
+            //Create mew identifier
+            Identifier idRudder = new Identifier(newArray[5]);
+            ActionStructural newAs = CommandParser.getAS();
+            //doDeclare method
+            newAs.doDeclareRudderController(idController, idRudder);
         }
         //elevator
         if(newArray[1].equalsIgnoreCase("ELEVATOR")){
