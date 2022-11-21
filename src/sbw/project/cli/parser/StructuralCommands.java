@@ -4,6 +4,7 @@ import sbw.architecture.datatype.*;
 import sbw.project.cli.action.ActionCreational;
 import sbw.project.cli.action.ActionStructural;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +24,14 @@ public class StructuralCommands {
         }
         //elevator
         if(newArray[1].equalsIgnoreCase("ELEVATOR")){
+        //DECLARE ELEVATOR CONTROLLER <id1> WITH ELEVATORS <id2> <id3>
+            //Create idController, Left and Right Elevators
+            Identifier idController = new Identifier(newArray[3]);
+            Identifier idElevatorLeft = new Identifier(newArray[6]);
+            Identifier idElevatorRight = new Identifier(newArray[7]);
+            //call doDeclareElevatorController
+            ActionStructural newAS = CommandParser.getAS();
+            newAS.doDeclareElevatorController(idController, idElevatorLeft, idElevatorRight);
 
         }
         //aileron
@@ -66,6 +75,12 @@ public class StructuralCommands {
         //nose gear
         if(newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")){
 
+        }
+        //This is required per spec to move onto behavioral
+        if(newArray[0].equalsIgnoreCase("COMMIT")){
+            ActionStructural newStructure = CommandParser.getAS();
+            //just call doCommit()
+            newStructure.doCommit();
         }
     }
     private double strToDouble(String value) {
