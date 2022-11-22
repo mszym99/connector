@@ -13,6 +13,7 @@ public class MiscellaneousCommands {
 
         if(newArray[0].equalsIgnoreCase("@EXIT")){
             CommandDoExit exitCommand = new CommandDoExit();
+            //create new instance of Action Miscellaneous
             ActionMiscellaneous newMiscellaneous = CommandParser.getAM();
             newMiscellaneous.submitCommand(exitCommand);
         }
