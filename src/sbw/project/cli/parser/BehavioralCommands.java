@@ -1,14 +1,9 @@
 package sbw.project.cli.parser;
 
-import sbw.architecture.datatype.Acceleration;
-import sbw.architecture.datatype.Angle;
-import sbw.architecture.datatype.Identifier;
-import sbw.architecture.datatype.Speed;
+import sbw.architecture.datatype.*;
 import sbw.project.cli.action.ActionBehavioral;
 import sbw.project.cli.action.ActionCreational;
-import sbw.project.cli.action.command.behavioral.CommandDoDeflectElevator;
-import sbw.project.cli.action.command.behavioral.CommandDoDeflectRudder;
-import sbw.project.cli.action.command.behavioral.CommandDoHalt;
+import sbw.project.cli.action.command.behavioral.*;
 
 public class BehavioralCommands {
     public void behavioralParse(String newArray[]){
@@ -60,12 +55,29 @@ public class BehavioralCommands {
             }
         }
         //aileron
-        if(newArray[1].equalsIgnoreCase("AILERON")){
+        if(newArray[3].equalsIgnoreCase("AILERON")){
+            boolean isDown;
+            Identifier id = new Identifier(newArray[1]);
+            Angle angle = new Angle(strToDouble(newArray[4]));
+            if(newArray[5].equalsIgnoreCase("DOWN")){
+                isDown = true;
+            }
+            else{
+                isDown = false;
+            }
 
+            CommandDoDeflectAilerons command = new CommandDoDeflectAilerons(id, angle, isDown);
+            ActionBehavioral newBehavioral = CommandParser.getAB();
+            newBehavioral.submitCommand(command);
         }
         // split flap
-        if(newArray[1].equalsIgnoreCase("SPLIT") && newArray[2].equalsIgnoreCase("FLAP")){
+        if(newArray[3].equalsIgnoreCase("FLAP")){
+            Identifier id = new Identifier(newArray[1]);
+            Position position = new Position(Position.getEnum(Integer.parseInt(newArray[4])));
 
+            CommandDoSetFlaps command = new CommandDoSetFlaps(id, position);
+            ActionBehavioral newBehavioral = CommandParser.getAB();
+            newBehavioral.submitCommand(command);
         }
         //engine
         if(newArray[1].equalsIgnoreCase("ENGINE")){

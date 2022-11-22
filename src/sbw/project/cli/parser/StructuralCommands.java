@@ -58,11 +58,11 @@ public class StructuralCommands {
             newStructure.doDeclareAileronController(idControler, idAilerons, idPrimary, slaveMixes);
         }
         // split flap
-        if(newArray[2].equalsIgnoreCase("FLAP")){
-            Identifier idController = new Identifier(newArray[4]);
+        if(newArray[1].equalsIgnoreCase("FLAP")){
+            Identifier idController = new Identifier(newArray[3]);
             List<Identifier> idFlaps = new ArrayList<Identifier>();
+            idFlaps.add(new Identifier(newArray[6]));
             idFlaps.add(new Identifier(newArray[7]));
-            idFlaps.add(new Identifier(newArray[8]));
             /*
             for(int i = 6; i < newArray.length; i++){
                 idFlaps.add(new Identifier(newArray[i]));
