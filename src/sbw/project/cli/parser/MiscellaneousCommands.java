@@ -1,33 +1,26 @@
 package sbw.project.cli.parser;
 
+import sbw.project.cli.action.ActionBehavioral;
+import sbw.project.cli.action.ActionMiscellaneous;
+import sbw.project.cli.action.command.misc.CommandDoExit;
+
 public class MiscellaneousCommands {
     public void miscellaneousParse(String newArray[]) {
 
-        //if so then check if parseArray[1] is equal to one of the following commands
-        //rudder
-        if (newArray[1].equalsIgnoreCase("RUDDER")) {
+        if(newArray[0].equalsIgnoreCase("@CLOCK")){
 
         }
-        //elevator
-        if (newArray[1].equalsIgnoreCase("ELEVATOR")) {
+
+        if(newArray[0].equalsIgnoreCase("@EXIT")){
+            CommandDoExit exitCommand = new CommandDoExit();
+            ActionMiscellaneous newMiscellaneous = CommandParser.getAM();
+            newMiscellaneous.submitCommand(exitCommand);
+        }
+
+        if(newArray[0].equalsIgnoreCase("@RUN")){
 
         }
-        //aileron
-        if (newArray[1].equalsIgnoreCase("AILERON")) {
 
-        }
-        // split flap
-        if (newArray[1].equalsIgnoreCase("SPLIT") && newArray[2].equalsIgnoreCase("FLAP")) {
-
-        }
-        //engine
-        if (newArray[1].equalsIgnoreCase("ENGINE")) {
-
-        }
-        //nose gear
-        if (newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")) {
-
-        }
     }
     private double strToDouble(String value) {
         return Double.parseDouble(value);
