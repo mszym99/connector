@@ -57,8 +57,8 @@ public class CommandParser
             create.structrualParse(newArray);
             System.out.println();
             return;
-         } else if (newArray[0].equalsIgnoreCase("DO")) {
-            //Creates a new instance of the Structural Commands class
+         } else if (newArray[0].equalsIgnoreCase("DO") || newArray[0].equalsIgnoreCase("HALT")) {
+            //Creates a new instance of the Structural Commands class or HALT case
             BehavioralCommands create = new BehavioralCommands();
             //calls the method that parses the String array and calls the appropriate action class based on input
             create.behavioralParse(newArray);

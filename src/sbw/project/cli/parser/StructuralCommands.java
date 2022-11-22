@@ -18,14 +18,14 @@ public class StructuralCommands {
             //Create new identifier with id at array index 3
             Identifier idController = new Identifier(newArray[3]);
             //Create mew identifier
-            Identifier idRudder = new Identifier(newArray[5]);
+            Identifier idRudder = new Identifier(newArray[6]);
             ActionStructural newAs = CommandParser.getAS();
             //doDeclare method
             newAs.doDeclareRudderController(idController, idRudder);
         }
         //elevator
         if(newArray[1].equalsIgnoreCase("ELEVATOR")){
-        //DECLARE ELEVATOR CONTROLLER <id1> WITH ELEVATORS <id2> <id3>
+        //DECLARE ELEVATOR CONTROLLER E1 WITH ELEVATORS E2 E3
             //Create idController, Left and Right Elevators
             Identifier idController = new Identifier(newArray[3]);
             Identifier idElevatorLeft = new Identifier(newArray[6]);
