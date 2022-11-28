@@ -73,13 +73,27 @@ public class StructuralCommands {
             newStructure.doDeclareFlapController(idController, idFlaps);
         }
         //engine
+        //DECLARE ENGINE CONTROLLER <id1> WITH ENGINE[S] <idn>+
         if(newArray[1].equalsIgnoreCase("ENGINE")){
-
+            Identifier idController = new Identifier(newArray[3]);
+            List<Identifier> idEngine = new ArrayList<Identifier>();
+            Identifier adder = new Identifier(newArray[6]);
+            idEngine.add(adder);
+            ActionStructural newStructure = CommandParser.getAS();
+            newStructure.doDeclareEngineController(idController, idEngine);
         }
         //nose gear
+        //DECLARE GEAR CONTROLLER <id1> WITH GEAR NOSE <id2> MAIN <id3> <id4>
         if(newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")){
-
+            Identifier idController = new Identifier(newArray[3]);
+            Identifier idNose = new Identifier(newArray[7]);
+            Identifier idMainLeft = new Identifier(newArray[9]);
+            Identifier idMainRight = new Identifier(newArray[10]);
+            ActionStructural newAS = CommandParser.getAS();
+            newAS.doDeclareGearController(idController, idNose, idMainLeft, idMainRight);
         }
+
+
         //This is required per spec to move onto behavioral
         if(newArray[0].equalsIgnoreCase("COMMIT")){
             ActionStructural newStructure = CommandParser.getAS();

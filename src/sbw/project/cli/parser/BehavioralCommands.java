@@ -80,13 +80,34 @@ public class BehavioralCommands {
             newBehavioral.submitCommand(command);
         }
         //engine
+        //DO <id> SET POWER <power>
+        //DO <id1> SET POWER <power> ENGINE <id2>
         if(newArray[1].equalsIgnoreCase("ENGINE")){
-
+            Identifier id = new Identifier(newArray[1]);
+            Power power = new Power(Double.parseDouble(newArray[4]));
+            Identifier idEngine = new Identifier(newArray[6]);
+            CommandDoSetEnginePowerAll command_all = new CommandDoSetEnginePowerAll(id, power);
+            CommandDoSetEnginePowerSingle command_single = new CommandDoSetEnginePowerSingle(id, power, idEngine);
+            ActionBehavioral newBehavioral = CommandParser.getAB();
+            newBehavioral.submitCommand(command_all);
+            newBehavioral.submitCommand(command_single);
         }
         //nose gear
+        //DO <id> GEAR UP|DOWN
         if(newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")){
 
-        }
+            if (newArray[3].equalsIgnoreCase("UP")){
+                Identifier id = new Identifier(newArray[1]);
+                CommandDoSelectGear command = new CommandDoSelectGear(id, false);
+                ActionBehavioral newAB = CommandParser.getAB();
+                newAB.submitCommand(command);
+            }
+            if (newArray[3].equalsIgnoreCase("DOWN")){
+                Identifier id = new Identifier(newArray[1]);
+                CommandDoSelectGear command = new CommandDoSelectGear(id, true);
+                ActionBehavioral newAB = CommandParser.getAB();
+                newAB.submitCommand(command);
+            }
         //HALT case is met per spec
         /*
         HALT <id>*/
