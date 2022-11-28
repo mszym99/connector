@@ -3,7 +3,6 @@ package sbw.project.cli.parser;
 import sbw.project.cli.action.ActionBehavioral;
 import sbw.project.cli.action.ActionMiscellaneous;
 import sbw.project.cli.action.command.misc.CommandDoExit;
-import sbw.project.cli.action.command.misc.CommandDoRunCommandFile;
 
 public class MiscellaneousCommands {
     public void miscellaneousParse(String newArray[]) {
@@ -19,11 +18,8 @@ public class MiscellaneousCommands {
             newMiscellaneous.submitCommand(exitCommand);
         }
 
-        //@RUN "<filename>"
         if(newArray[0].equalsIgnoreCase("@RUN")){
-            CommandDoRunCommandFile command = new CommandDoRunCommandFile(newArray[1]);
-            ActionMiscellaneous newAM = CommandParser.getAM();
-            newAM.submitCommand(command);
+
         }
 
     }

@@ -10,6 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class StructuralCommands {
+    public boolean committed = false;
     public void structrualParse(String newArray[]){
         //if so then check if parseArray[1] is equal to one of the following commands
         //rudder
