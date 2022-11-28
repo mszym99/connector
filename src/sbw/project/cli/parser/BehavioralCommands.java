@@ -6,14 +6,14 @@ import sbw.project.cli.action.ActionCreational;
 import sbw.project.cli.action.command.behavioral.*;
 
 public class BehavioralCommands {
-    public void behavioralParse(String newArray[]){
+    public void behavioralParse(String newArray[]) {
 
         //if so then check if parseArray[1] is equal to one of the following commands
         //rudder
         //DO <id> DEFLECT RUDDER <angle> LEFT|RIGHT
-        if(newArray[1].equalsIgnoreCase("RUDDER")){
-          //for left
-            if(newArray[5].equalsIgnoreCase("LEFT")){
+        if (newArray[1].equalsIgnoreCase("RUDDER")) {
+            //for left
+            if (newArray[5].equalsIgnoreCase("LEFT")) {
                 Identifier id = new Identifier(newArray[1]);
                 Angle angle = new Angle(strToDouble(newArray[4]));
                 CommandDoDeflectRudder command = new CommandDoDeflectRudder(id, angle, false);
@@ -21,7 +21,7 @@ public class BehavioralCommands {
                 ActionBehavioral newAB = CommandParser.getAB();
                 newAB.submitCommand(command);
             }//for right
-            if(newArray[5].equalsIgnoreCase("RIGHT")){
+            if (newArray[5].equalsIgnoreCase("RIGHT")) {
                 Identifier id = new Identifier(newArray[1]);
                 Angle angle = new Angle(strToDouble(newArray[4]));
                 CommandDoDeflectRudder command = new CommandDoDeflectRudder(id, angle, true);
@@ -32,9 +32,9 @@ public class BehavioralCommands {
         }
         //elevator
         //DO <id> DEFLECT ELEVATOR <angle> UP|DOWN
-        if(newArray[1].equalsIgnoreCase("ELEVATOR")){
+        if (newArray[1].equalsIgnoreCase("ELEVATOR")) {
             //for up
-            if(newArray[5].equalsIgnoreCase("UP")){
+            if (newArray[5].equalsIgnoreCase("UP")) {
                 Identifier id = new Identifier(newArray[1]);
                 Angle angle = new Angle(strToDouble(newArray[4]));
                 //new command
@@ -44,7 +44,7 @@ public class BehavioralCommands {
                 newAB.submitCommand(command);
             }
             //for down
-            if(newArray[5].equalsIgnoreCase("DOWN")){
+            if (newArray[5].equalsIgnoreCase("DOWN")) {
                 Identifier id = new Identifier(newArray[1]);
                 Angle angle = new Angle(strToDouble(newArray[4]));
                 //new command
@@ -55,14 +55,13 @@ public class BehavioralCommands {
             }
         }
         //aileron
-        if(newArray[3].equalsIgnoreCase("AILERON")){
+        if (newArray[3].equalsIgnoreCase("AILERON")) {
             boolean isDown;
             Identifier id = new Identifier(newArray[1]);
             Angle angle = new Angle(strToDouble(newArray[4]));
-            if(newArray[5].equalsIgnoreCase("DOWN")){
+            if (newArray[5].equalsIgnoreCase("DOWN")) {
                 isDown = true;
-            }
-            else{
+            } else {
                 isDown = false;
             }
 
@@ -71,7 +70,7 @@ public class BehavioralCommands {
             newBehavioral.submitCommand(command);
         }
         // split flap
-        if(newArray[3].equalsIgnoreCase("FLAP")){
+        if (newArray[3].equalsIgnoreCase("FLAP")) {
             Identifier id = new Identifier(newArray[1]);
             Position position = new Position(Position.getEnum(Integer.parseInt(newArray[4])));
 
@@ -82,7 +81,7 @@ public class BehavioralCommands {
         //engine
         //DO <id> SET POWER <power>
         //DO <id1> SET POWER <power> ENGINE <id2>
-        if(newArray[1].equalsIgnoreCase("ENGINE")){
+        if (newArray[1].equalsIgnoreCase("ENGINE")) {
             Identifier id = new Identifier(newArray[1]);
             Power power = new Power(Double.parseDouble(newArray[4]));
             Identifier idEngine = new Identifier(newArray[6]);
@@ -94,32 +93,35 @@ public class BehavioralCommands {
         }
         //nose gear
         //DO <id> GEAR UP|DOWN
-        if(newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")){
+        if (newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")) {
 
-            if (newArray[3].equalsIgnoreCase("UP")){
+            if (newArray[3].equalsIgnoreCase("UP")) {
                 Identifier id = new Identifier(newArray[1]);
                 CommandDoSelectGear command = new CommandDoSelectGear(id, false);
                 ActionBehavioral newAB = CommandParser.getAB();
                 newAB.submitCommand(command);
             }
-            if (newArray[3].equalsIgnoreCase("DOWN")){
+            if (newArray[3].equalsIgnoreCase("DOWN")) {
                 Identifier id = new Identifier(newArray[1]);
                 CommandDoSelectGear command = new CommandDoSelectGear(id, true);
                 ActionBehavioral newAB = CommandParser.getAB();
                 newAB.submitCommand(command);
             }
-        //HALT case is met per spec
+        }
+            //HALT case is met per spec
         /*
         HALT <id>*/
-        if(newArray[0].equalsIgnoreCase("HALT")){
-            Identifier id = new Identifier(newArray[1]);
-            CommandDoHalt commandDoHalt = new CommandDoHalt(id);
-            ActionBehavioral newAB = CommandParser.getAB();
-            newAB.submitCommand(commandDoHalt);
+            if (newArray[0].equalsIgnoreCase("HALT")) {
+                Identifier id = new Identifier(newArray[1]);
+                CommandDoHalt commandDoHalt = new CommandDoHalt(id);
+                ActionBehavioral newAB = CommandParser.getAB();
+                newAB.submitCommand(commandDoHalt);
+            }
+        }
+
+        private double strToDouble(String value) {
+            return Double.parseDouble(value);
         }
     }
 
-    private double strToDouble(String value) {
-        return Double.parseDouble(value);
-    }
-}
+
