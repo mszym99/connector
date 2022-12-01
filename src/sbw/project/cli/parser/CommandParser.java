@@ -37,12 +37,13 @@ public class CommandParser
    }
 
    public void parse() throws FileNotFoundException {
-      String testFile = "C:\\Users\\MSzym\\Downloads\\connector\\src\\sbw\\project\\cli\\parser\\creationalTests.txt";
-      File newFile = new File(testFile);
-      Scanner scanner = new Scanner(newFile);
-      while(scanner.hasNextLine()){
-         String temp = scanner.nextLine();
-         text = temp;
+      //String testFile = "C:\\Users\\MSzym\\Downloads\\connector\\src\\sbw\\project\\cli\\parser\\creationalTests.txt";
+      //File newFile = new File(testFile);
+      //Scanner scanner = new Scanner(newFile);
+      int linenum = 0;
+     // while(scanner.hasNextLine()){
+         //String temp = scanner.nextLine();
+        // text = temp;
          setInput(text);
          input = getInput();
          System.out.println("YOUR PARSER: " + input);
@@ -86,7 +87,7 @@ public class CommandParser
                return;
             }
          }
-      }
+     // }
 
    }
 
