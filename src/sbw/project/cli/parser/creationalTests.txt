@@ -1,0 +1,11 @@
+Create a rudder rudder1 with limit 45, speed 10, and acceleration 0.1
+Create elevators elevator1 and elevator2 with limit 30, speed 10, and acceleration 0.1
+Create an elevator elevator3 with limit 30, speed 10, and acceleration 0.15
+Create ailerons aileron1 and aileron2 with respective up and down limits 90 and 40, speed 5, and acceleration 0.1
+Create ailerons aileron3 and aileron4 with respective up and down limits 90 and 30, speed 5, and acceleration 0.15
+Create a split flap flap_split3 with limit 50, speed 4, and acceleration 0.15
+Create a Fowler flap flap_fowler3 with limit 50, speed 4, and acceleration 0.1
+Create engines engine1, engine2, and engine3 with speed 10 and acceleration 0.2
+Create an engine engine4 with speed 10 and acceleration 0.25
+Create a nose gear gear_nose1 with speed 10 and acceleration 0.1
+Create a nose gear gear_nose2 with speed 10 and acceleration 0.15
