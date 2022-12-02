@@ -92,7 +92,7 @@ public class StructuralCommands {
             }
             //nose gear
             //DECLARE GEAR CONTROLLER <id1> WITH GEAR NOSE <id2> MAIN <id3> <id4>
-            if (newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")) {
+            if (newArray[1].equalsIgnoreCase("GEAR")) {
                 Identifier idController = new Identifier(newArray[3]);
                 Identifier idNose = new Identifier(newArray[7]);
                 Identifier idMainLeft = new Identifier(newArray[9]);

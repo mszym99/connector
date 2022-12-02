@@ -81,7 +81,7 @@ public class BehavioralCommands {
         //engine
         //DO <id> SET POWER <power>
         //DO <id1> SET POWER <power> ENGINE <id2>
-        if (newArray[1].equalsIgnoreCase("ENGINE")) {
+        if (newArray[5].equalsIgnoreCase("ENGINE")) {
             Identifier id = new Identifier(newArray[1]);
             Power power = new Power(Double.parseDouble(newArray[4]));
             Identifier idEngine = new Identifier(newArray[6]);
@@ -93,7 +93,7 @@ public class BehavioralCommands {
         }
         //nose gear
         //DO <id> GEAR UP|DOWN
-        if (newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")) {
+        if (newArray[2].equalsIgnoreCase("GEAR")) {
 
             if (newArray[3].equalsIgnoreCase("UP")) {
                 Identifier id = new Identifier(newArray[1]);

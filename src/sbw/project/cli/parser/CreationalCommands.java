@@ -72,17 +72,23 @@ public class CreationalCommands {
                 ActionCreational newCreation = CommandParser.getAC();
                 newCreation.doCreateEngine(idEngine, speed, acceleration);
             }
-            //gear
+            //nose gear
             if(newArray[1].equalsIgnoreCase("NOSE") && newArray[2].equalsIgnoreCase("GEAR")){
                 //create nose gear and main gear
                 //CREATE NOSE GEAR <id> WITH SPEED <speed> ACCELERATION <acceleration>
                 //CREATE MAIN GEAR <id> WITH SPEED <speed> ACCELERATION <acceleration>
                 Identifier idNose = new Identifier(newArray[3]);
-                Identifier idMain = new Identifier(newArray[3]);
                 Speed speed = new Speed(strToDouble(newArray[6]));
                 Acceleration acceleration = new Acceleration(strToDouble(newArray[8]));
                 ActionCreational newCreation = CommandParser.getAC();
                 newCreation.doCreateGearNose(idNose,speed,acceleration);
+            }
+            //main gear
+            if(newArray[1].equalsIgnoreCase("MAIN") && newArray[2].equalsIgnoreCase("GEAR")){
+                Identifier idMain = new Identifier(newArray[3]);
+                Speed speed = new Speed(strToDouble(newArray[6]));
+                Acceleration acceleration = new Acceleration(strToDouble(newArray[8]));
+                ActionCreational newCreation = CommandParser.getAC();
                 newCreation.doCreateGearMain(idMain,speed,acceleration);
             }
         }
